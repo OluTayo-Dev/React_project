@@ -1,24 +1,18 @@
 import Home from "./components/Home";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Create from "./components/Create";
 import Signup from "./components/Signup";
+import Cretate from "./components/Create";
+import React, { useState } from "react";
 
 function App() {
-  return (
-    <div>
-     <BrowserRouter>
-
-        <Routes>
-
-           <Route path="/Home" element={<Home />} />
-           <Route path="/Create" element={<Create />} />
-           <Route path="/Signup" element={<Signup />} />
-       
-        </Routes>
-
-     </BrowserRouter> 
-  </div> 
-  );
+  
+   return(
+      <div>
+         <Home />
+      </div>
+   )
+    
+  
+  
 }
 
 export default App;

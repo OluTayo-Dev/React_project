@@ -1,32 +1,64 @@
-import React from 'react';
-import './Home.css';
-import { useNavigate } from 'react-router-dom';
+import React, {  useState } from "react";
+import "./Home.css";
+
+
+
 
 
 
 
 export default function Home() { 
-    const navigate = useNavigate ();
-  return (  
-    
-    <>
-    <div class="main">
-            <h2>facebook</h2>
-            <p>Facebook helps you connect and share</p>
-                <p> with the people in your life</p>
-        </div>
-    <div class="input">
-        <form action="" id="pop">
-            <input type="text"   id="email"  placeholder="Enter email address or Phone Number" /> <br />
-            <input type="password" id="pass" placeholder="Password" /> <br />
-            <button  id="log" onClick={() => navigate('/Signup')} >Log in</button> <br />
-            <a href="forgetpassword" id="for">forgetten password?</a> <br />
-            <hr  id="fb"/>
-            <button id="click" onClick={() => navigate('/Create')} >Create new account</button> <br />
-        </form>
+  const [isLogin, setIsLogin] = useState(false);
+  const [input, setInput] = useState({
+    email: "",
+    password: "",
+  });
+
+  const onChange = (e) => {
+    setInput({ ...input, [e.target.id]: e.target.value });
+  };
+
+  const onSubmit = () => {
+    alert("Login successful");
+    setIsLogin(true);
+  };
+
+  return (
+    <div>
+      {isLogin ? (
+        <>
+          <p>Welcome to your dashboard page</p>
+        </>
+      ) : (
+        <>
+          <div class="main">
+            <form onSubmit={onSubmit}>
+                <input
+                  type="text" 
+                  placeholder="Enter email address or password"
+                  id="email"
+                  onChange={onChange}
+                  required
+                /> <br />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  id="password"
+                  onChange={onChange}
+                  required
+                /> <br />
+                <button>Log in</button> <br />
+                <a href="forgetpassword">Forgotten password?</a> <br />
+                <button>Create new account</button>
+              </form>
+            </div>
+          
+        </>
+      )}
     </div>
-    <h5>Create a Page for a celebbrity, brand or business</h5>
-    </>
-    
-  )
+  );
 }
+
+
+    
+
