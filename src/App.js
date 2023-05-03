@@ -1,4 +1,4 @@
-import Home from "./components/Home";
+import Home from "./components/parent";
 import Signup from "./components/Signup";
 import Cretate from "./components/Create";
 import React, { useState } from "react";
